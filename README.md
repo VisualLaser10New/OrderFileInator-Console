@@ -12,3 +12,7 @@ The program operates by copying and pasting files in properly folders.
 - -s: Replaces files that already exist in destination folders.
 - -f: The path of folder from which to retrieve the files.
 - -b: Next you must insert a number in byte. This excludes files bigger than the number.
+
+## Usage
+An example is: <br>
+``OrderFileInator.py -c -b 1000000 -f ..\``
