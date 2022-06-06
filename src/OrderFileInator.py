@@ -40,6 +40,7 @@ Files = {
 		'Mac': ['.app'],
 		'Android':['.apk'],
 		'iOS':['.ipa'],
+		'Java':['.jar'],
 	}),
 	'Archives': ContentType('Archives', '.\\Archives', ext=
 	{
