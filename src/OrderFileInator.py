@@ -75,6 +75,7 @@ Files = {
 		'MultiSim': ['.msim', '.msm'],
 		'Musescore': ['.mscz'],
 		'Stylish': ['.dms'],
+		'VegasPro':['.veg'],
 	}),
 	'Programming': ContentType('Programming', '.\\Programming', ext=
 	{		
