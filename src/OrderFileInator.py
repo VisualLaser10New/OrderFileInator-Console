@@ -57,12 +57,12 @@ Files = {
 	}),
 	'Audio': ContentType('Audio', '.\\Audio', ext=
 	{
-		'All': ['.mp3', '.wav', '.wma', '.aac', '.flac', '.ogg', '.oga', '.mid']
+		'All': ['.mp3', '.wav', '.wma', '.aac', '.flac', '.ogg', '.oga', '.mid', '.amr']
 	}),
 	'Pictures': ContentType('Pictures', '.\\Pictures', ext=
 	{
 		'Vectorial':['.svg','.eps','.svgz'],
-		'Bitmap':['.bmp','.jpg','.jpeg','.png','.gif','.tiff','.tif','.raw','.webp'],
+		'Bitmap':['.bmp','.jpg','.jpeg','.png','.gif','.tiff','.tif','.raw','.webp', '.jfif', '.ico'],
 	}),
 	'SoftwareProjects': ContentType('SoftwareProjects', '.\\SoftwareProjects', ext=
 	{
@@ -72,6 +72,8 @@ Files = {
 		'Pixelmator': ['.pxm'],
 		'PixelFormer': ['.pxf'],
 		'MultiSim': ['.msim', '.msm'],
+		'Musescore': ['.mscz'],
+		'Stylish': ['.dms'],
 	}),
 	'Programming': ContentType('Programming', '.\\Programming', ext=
 	{		
