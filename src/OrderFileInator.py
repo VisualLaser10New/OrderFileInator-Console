@@ -33,6 +33,7 @@ Files = {
 		'Log': ['.log'],
 		'Config': ['.cfg', '.ini', '.conf', '.cnf'],
 		'Certificate': ['.cer', '.crt', '.pem', '.der', '.p12', '.pfx'],
+		'Database': ['.mdb', '.acdb', '.db', '.accdc', '.accft', '.mdf', '.sqlitedb', '.dbc', '.sqlite3', '.sql']
 	}),
 	'Executable': ContentType('Executable', '.\\Executable', ext=
 	{
@@ -44,10 +45,11 @@ Files = {
 	}),
 	'Archives': ContentType('Archives', '.\\Archives', ext=
 	{
-		'All': ['.zip', '.rar', '.7z', '.tar', '.gz', '.bz2', '.xz', '.lz', 
+		'Data': ['.dat', '.data', '.bin'],
+		'Other': ['.zip', '.rar', '.7z', '.tar', '.gz', '.bz2', '.xz', '.lz', 
 		'.lzo', '.lz4', '.lzop', '.lzma', '.lz4', '.lzop', '.xz', 
 		'.zst', '.zpaq', '.cab', '.arj', '.cram', '.iso', '.dmg', '.udf', 
-		'.wim', '.swm', '.lzh', '.lha', '.lzx']
+		'.wim', '.swm', '.lzh', '.lha', '.lzx'],
 	}),
 	'Video': ContentType('Video', '.\\Video', ext=
 	{
