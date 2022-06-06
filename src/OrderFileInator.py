@@ -38,6 +38,8 @@ Files = {
 	{
 		'Windows': ['.exe', '.msi', '.msu', '.appx', '.appxbundle', '.msix', '.msixbundle'],
 		'Mac': ['.app'],
+		'Android':['.apk'],
+		'iOS':['.ipa'],
 	}),
 	'Archives': ContentType('Archives', '.\\Archives', ext=
 	{
@@ -206,24 +208,33 @@ def copyFiles(folderName):
 				for ext in ct[cf]:
 					#ext -> .docx
 					#check if file matches extension
-					if (fileName.endswith(ext) and os.path.isfile(folderName + "\\" + fileName)) or (ext == 'All' and os.path.isfile(folderName + "\\" + fileName)):
+					if (fileName.lower().endswith(ext) and os.path.isfile(folderName + "\\" + fileName)) or (ext == 'All' and os.path.isfile(folderName + "\\" + fileName)):
 						breakall = True
 						#copy file to folder
 						try:
 							print("Copying %s to %s" % (fileName, Files[key].getName()))
 
-							if(Settings['Substitute']):#replace older file
-								if(os.path.exists(Files[key].getFolderPath() + "\\" + cf + "\\" + ext + "\\" + fileName)):
-									os.remove(Files[key].getFolderPath() + "\\" + cf + "\\" + ext + "\\" + fileName)
-							
 							if(not os.path.exists(Files[key].getFolderPath() + "\\" + cf + "\\")): #create cf folder if not exists
 								os.mkdir(Files[key].getFolderPath()+"\\"+ cf + "\\")
 
 							if(not os.path.exists(Files[key].getFolderPath() + "\\" + cf + "\\" + ext + "\\")): #create ext folder if not exists
 								os.mkdir(Files[key].getFolderPath()+"\\"+ cf + "\\" + ext + "\\")
 							
-							#copy file
-							shutil.copyfile(folderName+ '\\' + fileName, Files[key].getFolderPath() + "\\" + cf + "\\" + ext + "\\" + fileName)
+							if(Settings['Substitute']):#replace older file
+								if(os.path.exists(Files[key].getFolderPath() + "\\" + cf + "\\" + ext + "\\" + fileName)):
+									os.remove(Files[key].getFolderPath() + "\\" + cf + "\\" + ext + "\\" + fileName)
+							
+								#copy file
+								shutil.copyfile(folderName+ '\\' + fileName, Files[key].getFolderPath() + "\\" + cf + "\\" + ext + "\\" + fileName)
+							else:
+								#if not sobstitute file
+								if(os.path.exists(Files[key].getFolderPath() + "\\" + cf + "\\" + ext + "\\" + fileName)):
+									print("File %s already exists, so it will not be copied" % (fileName))
+									errorfiles += 1
+									break
+								else:
+									#copy file
+									shutil.copyfile(folderName+ '\\' + fileName, Files[key].getFolderPath() + "\\" + cf + "\\" + ext + "\\" + fileName)
 						except:
 							errorfiles += 1
 							print('Error: Could not copy file \'%s\'.' % fileName)
@@ -235,6 +246,7 @@ def copyFiles(folderName):
 								os.remove(folderName + '\\' + fileName)
 							except:
 								print('Error: Could not delete file \'%s\'.' % fileName)
+								break
 							deletedfiles += 1
 						break
 				if (breakall):
