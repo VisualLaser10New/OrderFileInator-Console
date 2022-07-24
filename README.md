@@ -12,6 +12,8 @@ The program operates by copying and pasting files in properly folders.
 - -s: Replaces files that already exist in destination folders.
 - -f: The path of folder from which to retrieve the files.
 - -b: Next you must insert a number in byte. This excludes files bigger than the number.
+- -e: Insert the path of file that contains a list of extensions to exclude from the process. (In the file write one extension per line).
+- -l: Insert the path where you want to save the log of the process.
 
 ## Usage
 An example is: <br>
